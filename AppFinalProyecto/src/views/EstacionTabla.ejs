@@ -1,0 +1,166 @@
+<html>
+	<head>
+		<title> Examen Angel Capa</title>
+
+		<!-- Bootstrap -->
+	<link href="https://blackrockdigital.github.io/startbootstrap-agency/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+	<!-- Custom fonts for this template -->
+	<link href="https://blackrockdigital.github.io/startbootstrap-agency/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+	<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<!-- Custom styles for this template -->
+	<link href="https://blackrockdigital.github.io/startbootstrap-agency/css/agency.min.css" rel="stylesheet">
+	<!-- <script>
+	function desactiva_enlace(enlace)
+	{
+      enlace.disabled='disabled';
+	}
+</script> -->
+<style>
+		#map {/* dimensiones del mapa*/
+		height:550px;
+		width: 90%;
+margin-bottom: 15px;
+margin-left: 80px;
+	 }
+</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+		<div class="container">
+			<a class="navbar-brand js-scroll-trigger" href="/principal">Panic Button </a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				Menu
+				<i class="fa fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav text-uppercase ml-auto">
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="C:/Users/Capa Brothers/Desktop/ExamenAngelCapa3/index.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#portfolio">App</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#team">Team</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+		<div class="map-wrapper">
+	<div id="wrapper"> <!--se puede eliminar mas adelante -->
+ <!--Contenido Mapa-->
+							<div class="span12">
+				 <aside>
+				 <div id="map">
+					 <script>
+						 function initMap() {
+								var map = new google.maps.Map(document.getElementById('map'), {
+								 zoom: 14.5,
+								 center: {lat: -3.988865, lng:-79.200896}
+							 });
+
+							 setMarkers(map);
+							}
+						 var Estaciones = [
+									['UPC Celi Roman',-3.987678,-79.207985],
+							 ['Policia UPC El sagrario',-3.995169,-79.195437],
+									['Policia UPC Sauces Norte 2',  -3.967845,-79.205524],
+							 ['UPC Esteban Godoy', -4.028269,-79.208808],
+							 ['UPC La Pradera', -4.012781, -79.197268],
+							 ['Policia UPC Tebaida 1', -4.009714, -79.207668],
+							 ['Unidad de Policia Comunitaria UPC',-3.486904,-79.412716],
+							 ['UPC La Laguna',-3.325624,-79.817209],
+							 ['UPC Cariamanga ', -4.329414,-79.561054],
+							 ['UPC',-4.319688,-79.233552],
+							 ['UPC Tumianuma',-4.304349,-79.2585576],
+							 ['UPC El Cisne', -3.852550,-79.426179],
+							 ['UPC Malacatosr',-4.219441,-79.258234],
+							 ['Nuevooooooooooooo',-4.231575000000,-79.438660000000],
+						 ];
+
+						 console.log(Estaciones);
+
+						 function setMarkers(map) {
+						for (var i = 0; i < Estaciones.length; i++) {
+							var   estacion = Estaciones[i];
+							var marker = new google.maps.Marker({
+								position: {lat: estacion[1], lng: estacion[2]},
+								map: map,
+								title: estacion[0],
+								zIndex: estacion[3]
+							});
+						}
+						 }
+					 </script>
+					 <script async defer
+					 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcRpNmPykdgDTgHpOS-_freSJl61dCJeE&callback=initMap">
+				 </script>
+				 </div>
+				 </aside>
+			 </div>
+</div>
+</div>
+<br>
+    <nav class="navbar navbar-dark bg-dark mb-4">
+			<a href="/"  class="navbar-brand"></a>
+			<H1 align="center" style="color:#FFFEFE">Localizacion Geografica de Servicios de Seguridad </H1>
+		</nav>
+		<form action="/estaciones/busqueda" method="post">
+		  <div >
+		          <label for="">Buscar Infraestructura</label>
+		          <input type="text" name="infraestructura" value="" class="form-control">
+		          <input class="btn btn-info btn-block " name="submit" type="submit" value="Buscar"></button>
+		</form>
+    <div>
+       <table class="table table-hover">
+         <thead class="thead-dark">
+           <tr>
+             <th>ID</th>
+             <th>Canton</th>
+             <th>Parroquia</th>
+						 <th>NombreSubcircuito</th>
+             <th>Infraestructura</th>
+             <th>Latitud</th>
+             <th>Longuitud</th>
+           </tr>
+         </thead>
+         <tbody class="table-success">
+         <% for(var i=0; i < data.length; i++) { %>
+           <tr>
+           	<td><%= data[i].idEstaciones %></td>
+           	<td><%= data[i].canton %></td>
+           	<td><%= data[i].parroquia %></td>
+					 	<td><%= data[i].nombre_Circuito %></td>
+           	<td><%= data[i].infraestructura %></td>
+            <td><%= data[i].latitud %></td>
+          	<td><%= data[i].longitud %></td>
+           </tr>
+           <% } %>
+         </tbody>
+       </table>
+
+     </div>
+		 <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/jquery/jquery.min.js"></script>
+		 <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+		 <!-- Plugin JavaScript -->
+		 <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+		 <!-- Contact form JavaScript -->
+		 <script src="https://blackrockdigital.github.io/startbootstrap-agency/js/jqBootstrapValidation.js"></script>
+		 <script src="https://blackrockdigital.github.io/startbootstrap-agency/js/contact_me.js"></script>
+
+		 <!-- Custom scripts for this template -->
+		 <script src="https://blackrockdigital.github.io/startbootstrap-agency/js/agency.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<html>
+	<head>
+		<title> Examen Angel Capa</title>
+    <link href="https://blackrockdigital.github.io/startbootstrap-agency/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-agency/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-agency/css/agency.min.css" rel="stylesheet">
+
+<style>
+		#map {/* dimensiones del mapa*/
+		height:550px;
+		width: 90%;
+margin-bottom: 15px;
+margin-left: 80px;
+	 }
+</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+		<div class="container">
+			<a class="navbar-brand js-scroll-trigger" href="/principal">Panic Button </a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				Menu
+				<i class="fa fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav text-uppercase ml-auto">
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="C:/Users/Capa Brothers/Desktop/ExamenAngelCapa3/index.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#portfolio">App</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#team">Team</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+		<div class="map-wrapper">
+	<div id="wrapper"> <!--se puede eliminar mas adelante -->
+ <!--Contenido Mapa-->
+							<div class="span12">
+				 <aside>
+				 <div id="map">
+					 <script>
+						 function initMap() {
+								var map = new google.maps.Map(document.getElementById('map'), {
+								 zoom: 14.5,
+								 center: {lat: -3.988865, lng:-79.200896}
+							 });
+
+							 setMarkers(map);
+							}
+						 var Estaciones = [
+               ["Asesinato", -4.228154, -79.438294],
+                ["Homicidios",-3.999352,-79.356298],
+                ["Homicidios", -4.233005,-79.432518],
+                ["Asesinatos",-4.374368, -79.936659],
+                ["Asesinatos",-4,011495,-79,217357],
+                ["Asesinatos",-4377109, -79947464],
+                ["Asesinatos", -3.980496, -79.209384],
+                ["Asesinatos",-4.221425, -79.258658],
+                ["Asesinatos",-3.980091,-79.199235],
+                ["Homicidios",-4.296325, -79.402174],
+                ["Sicariatos",-3.985824,-79.203976],
+                ["Homicidios",-4.133849, -79.4234],
+                ["Asesinatos",-4.384629, -79.941214],
+                ["Homicidios",-4.030047, -79.204304],
+                ["Asesinatos",-4.322408, -79.553637],
+                ["Homicidios",-4.386554, -79.946907],
+                ["Asesinatos",-4,379251, -79,945714],
+                ["Asesinato",-3.999483,-79.224904],
+                ["Homicidio",-3.999531,-79.193395],
+                ["Femicidio",-4.019325, -79.196670],
+                ["Asesinato",-3.997582, -79.236271],
+                ["Sicariato",-3.973877, -79.214448],
+                ["Homicidio",-4.040708, -79.207868],
+                ["Homicidio",-4.027759, -79.204425],
+                ["Asesinato",-4.017079, -79.204476],
+                ["Asesinato",-4.016834, -79.199073],
+                ["Homicidio",-3.990853, -79.201811],
+                ["Sicariato",-3.938111, -79.223150],
+                ["Femicidio",-4.011069, -79.240299],
+                ["Homicidio",-4.043204, -79.216885],
+                ["Sicariato",-3.978442, -79.231240],
+                ["Femicidio",-4.000234, -79.197213],
+                ["Femicidio",4.026561, -79.210905]
+						 ];
+
+						 console.log(Estaciones);
+
+						 function setMarkers(map) {
+
+
+
+						for (var i = 0; i < Estaciones.length; i++) {
+							var   estacion = Estaciones[i];
+							var marker = new google.maps.Marker({
+								position: {lat: estacion[1], lng: estacion[2]},
+								map: map,
+								title: estacion[0],
+								zIndex: estacion[3]
+							});
+						}
+						 }
+					 </script>
+					 <script async defer
+					 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcRpNmPykdgDTgHpOS-_freSJl61dCJeE&callback=initMap">
+				 </script>
+				 </div>
+				 </aside>
+			 </div>
+</div>
+</div>
+<br>
+<nav class="navbar navbar-dark bg-dark mb-4">
+  <a href="/"  class="navbar-brand"></a>
+  <H1 style="color:#FFFEFE">Delitos</H1>
+			<!-- <input name="" type="button" href="/api/leer" onClick="desactiva_enlace(this)" value="Cargar Datos Api"> -->
+</nav>
+<form action="/homicidio/busqueda" method="post">
+  <div >
+          <label for="">Buscar por Canton</label>
+          <input type="text" name="canton" value="" class="form-control">
+          <input class="btn btn-info btn-block " name="submit" type="submit" value="Buscar"></button>
+</form>
+    <div>
+       <table class="table table-hover">
+         <thead class="thead-dark">
+           <tr>
+             <th>ID</th>
+             <th>canton</th>
+             <th>circuito</th>
+             <th>fecha_infraccion</th>
+             <th>tipo_muerte</th>
+						 <th>edad</th>
+             <th>sexo</th>
+             <th>latitud</th>
+            <th>longitud</th>
+           </tr>
+         </thead>
+         <tbody class="table-success">
+         <% for(var i=0; i < data.length; i++) { %>
+           <tr>
+             <td><%= data[i].id %></td>
+             <td><%= data[i].canton %></td>
+             <td><%= data[i].circuito %></td>
+              <td><%= data[i].fecha_infraccion %></td>
+              <td><%= data[i].tipo_muerte %></td>
+			        <td><%= data[i].edad %></td>
+              <td><%= data[i].sexo %></td>
+              <td><%= data[i].latitud %></td>
+              <td><%= data[i].longitud %></td>
+           </tr>
+           <% } %>
+         </tbody>
+       </table>
+     </div>
+     <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/jquery/jquery.min.js"></script>
+     <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+     <!-- Plugin JavaScript -->
+     <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+     <!-- Contact form JavaScript -->
+     <script src="https://blackrockdigital.github.io/startbootstrap-agency/js/jqBootstrapValidation.js"></script>
+     <script src="https://blackrockdigital.github.io/startbootstrap-agency/js/contact_me.js"></script>
+
+     <!-- Custom scripts for this template -->
+     <script src="https://blackrockdigital.github.io/startbootstrap-agency/js/agency.min.js"></script>
+</body>
+</html>
